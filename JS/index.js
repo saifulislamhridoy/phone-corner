@@ -40,10 +40,21 @@ first20Phone?.forEach(phone => {
             <div class="card-body">
                 <h5 class="card-title">Phone Name: ${phone.phone_name}</h5>
                 <p class="card-text">Brand: ${phone.brand}</p>
-                <button type="button" class="btn btn-outline-primary  rounded-pill">See Details</button>
+                <button onclick="phoneDetails('${phone.slug}')" type="button" class="btn btn-outline-primary  rounded-pill">See Details</button>
         </div>
     </div>
     `
     main.appendChild(div)
 });
+}
+// show phone details
+const phoneDetails = (Phonedetails) =>{
+    fetch(`https://openapi.programming-hero.com/api/phone/${Phonedetails}`)
+    .then(res => res.json())
+    .then(data => displayPhoneDetails(data))
+
+}
+// display phone details
+const displayPhoneDetails = (details) =>{
+
 }
