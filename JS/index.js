@@ -76,7 +76,16 @@ const displayPhoneDetails = (details) =>{
       <li class="list-group-item">Display Size: ${details.mainFeatures.displaySize}</li>
       <li class="list-group-item">Memory: ${details.mainFeatures.memory}</li>
     </ul>
-    <h5 class="text-info text-center">Main Features </h5>
+    <h5 class="text-info text-center">Sensor Information </h5>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">${details.mainFeatures.sensors[0]}</li>
+      <li class="list-group-item">${details.mainFeatures.sensors[1]}</li>
+      <li class="list-group-item">${details.mainFeatures.sensors[2]}</li>
+      <li class="list-group-item">${details.mainFeatures.sensors[3]}</li>
+      <li class="list-group-item">${details.mainFeatures.sensors[4]}</li>
+      <li class="list-group-item">${details.mainFeatures.sensors[5]}</li>
+    </ul>
+    
   </div>
     `
     showPhoneDetails.appendChild(div)
