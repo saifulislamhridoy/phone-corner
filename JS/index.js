@@ -37,7 +37,7 @@ first20Phone?.forEach(phone => {
     div.classList.add('mb-5')
     div.classList.add('rounded')
     div.innerHTML = `
-    <div class="card shadow" style="width: 18rem;">
+    <div class="card shadow mx-auto mt-3" style="width: 18rem;">
         <img src="${phone.image}" class="card-img-top p-3" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Phone Name: ${phone.phone_name}</h5>
@@ -59,11 +59,10 @@ const phoneDetails = (Phonedetails) =>{
 }
 // display phone details
 const displayPhoneDetails = (details) =>{
-    console.log(details)
     const div = document.createElement('div');
     div.classList.add('mb-5')
     div.innerHTML = `
-    <div class="card" style="width: 18rem;">
+    <div class="card mt-3 shadow p-3 " style="width: 18rem;">
     <img src="${details.image}" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">${details.name}</h5>
@@ -71,21 +70,26 @@ const displayPhoneDetails = (details) =>{
       <h6>Released: ${details.releaseDate ? details.releaseDate : 'Not found'}</h6>
     </div>
     <h5 class="text-info text-center">Main Features </h5>
-    <ul class="list-group list-group-flush">
       <li class="list-group-item">ChipSet: ${details.mainFeatures.chipSet}</li>
       <li class="list-group-item">Display Size: ${details.mainFeatures.displaySize}</li>
       <li class="list-group-item">Memory: ${details.mainFeatures.memory}</li>
-    </ul>
+
     <h5 class="text-info text-center">Sensor Information </h5>
-    <ul class="list-group list-group-flush">
       <li class="list-group-item">${details.mainFeatures.sensors[0]}</li>
       <li class="list-group-item">${details.mainFeatures.sensors[1]}</li>
       <li class="list-group-item">${details.mainFeatures.sensors[2]}</li>
       <li class="list-group-item">${details.mainFeatures.sensors[3]}</li>
       <li class="list-group-item">${details.mainFeatures.sensors[4]}</li>
       <li class="list-group-item">${details.mainFeatures.sensors[5]}</li>
-    </ul>
-    
+
+    <h5 class="text-info text-center">Others Information</h5>
+      <li class="list-group-item">Bluetooth: ${details.others.Bluetooth}</li>
+      <li class="list-group-item">GPS: ${details.others.GPS}</li>
+      <li class="list-group-item">NFC: ${details.others.NFC}</li>
+      <li class="list-group-item">Radio: ${details.others.Radio}</li>
+      <li class="list-group-item">USB: ${details.others.USB}</li>
+      <li class="list-group-item">WLAN: ${details.others.WLAN}</li>
+
   </div>
     `
     showPhoneDetails.appendChild(div)
