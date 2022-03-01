@@ -9,18 +9,21 @@ const searchButton = () =>{
     if(searchText ==""){
       error.innerText='Please give me search value'
       main.innerHTML ='';
+      showPhoneDetails.innerHTML=''
     }
     // load data
     else{
         error.innerText =''
         main.innerHTML =''
+        showPhoneDetails.innerHTML=''
         fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`)
         .then(response => response.json())
         .then(data =>displayPhones(data.data))
     }
 }
-// get main div id
+// get  div id
 const main = document.getElementById('main');
+const showPhoneDetails = document.getElementById('show-phone-details')
 // display phones
 const displayPhones = (phoneList) =>{
 const first20Phone = phoneList.slice(0, 20);
@@ -28,7 +31,6 @@ if(phoneList.length == 0){
     error.innerText='Result did not found'
 }
 first20Phone?.forEach(phone => {
-    console.log(phone)
     const div = document.createElement('div')
     // add class
     div.classList.add('col-lg-4')
@@ -49,12 +51,34 @@ first20Phone?.forEach(phone => {
 }
 // show phone details
 const phoneDetails = (Phonedetails) =>{
+    showPhoneDetails.innerHTML=''
     fetch(`https://openapi.programming-hero.com/api/phone/${Phonedetails}`)
     .then(res => res.json())
-    .then(data => displayPhoneDetails(data))
+    .then(data => displayPhoneDetails(data.data))
 
 }
 // display phone details
 const displayPhoneDetails = (details) =>{
+    console.log(details)
+    const div = document.createElement('div');
+    div.classList.add('mb-5')
+    div.innerHTML = `
+    <div class="card" style="width: 18rem;">
+    <img src="${details.image}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">${details.name}</h5>
+      <p>Brand: ${details.brand}</p>
+      <h6>Released: ${details.releaseDate ? details.releaseDate : 'Not found'}</h6>
+    </div>
+    <h5 class="text-info text-center">Main Features </h5>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">ChipSet: ${details.mainFeatures.chipSet}</li>
+      <li class="list-group-item">Display Size: ${details.mainFeatures.displaySize}</li>
+      <li class="list-group-item">Memory: ${details.mainFeatures.memory}</li>
+    </ul>
+    <h5 class="text-info text-center">Main Features </h5>
+  </div>
+    `
+    showPhoneDetails.appendChild(div)
 
 }
