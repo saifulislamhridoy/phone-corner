@@ -1,5 +1,6 @@
 // get error id
 const error = document.getElementById('error')
+// spinner
 const toggleSpinner = displayStyle =>{
   document.getElementById('spinner').style.display = displayStyle
 }
