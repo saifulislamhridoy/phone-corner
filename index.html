@@ -6,19 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phone Corner</title>
     <!-- link css -->
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="./CSS/style.css">
     <!-- link bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body class="bg-gray">
-    <h2 class="text-center mt-2">Phone Corner</h2>
+    <h2 class="text-center mt-2 text-info">Phone Corner</h2>
     <div class="container">
         <div class="d-flex">
             <input id="search-text" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button  onclick="searchButton()" class="btn btn-outline-primary" type="submit">Search</button>
           </div>
     </div>
-    <h2 id="error" class="text-danger text-center"></h2>
+    <!-- error -->
+    <h4 id="error" class="text-danger text-center pt-5"></h4>
+     <!-- spinner -->
+     <div id="spinner">
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="spinner-border" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+     </div>
     <!-- show phone details -->
     <div id="show-phone-details" class="d-flex justify-content-center">
 
